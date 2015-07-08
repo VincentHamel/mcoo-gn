@@ -44,7 +44,10 @@ router.route('/hello/:name')
         HelloWorld.findOne({name : req.params.name}, function(err, hello) {
             if(err)
                 res.send(err);
-            else
+            else if(!hello) {
+                res.status(404);
+                res.send({message: "Hello not found"});
+            } else
                 res.send(hello);
         });
     });
