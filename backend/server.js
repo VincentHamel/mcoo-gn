@@ -46,7 +46,7 @@ router.route('/hello/:name')
                 res.send(err);
             else if(!hello) {
                 res.status(404);
-                res.send({message: "Hello not found"});
+                res.json({message: "Hello not found"});
             } else
                 res.send(hello);
         });

@@ -32,6 +32,25 @@ describe('Routing', function() {
           done();
         });
     });
+    it('should create a hello', function(done) {
+      var profile = {
+        name: 'foo'
+      };
+    request(url)
+    .post('/hello')
+    .send(profile)
+    // end handles the response
+    .expect(200) //Status code
+    .end(function(err, res) {
+          if (err) {
+            throw err;
+          }
+          // this is should.js syntax, very clear
+          res.body.should.have.property('message', 'Hello created!');
+          done();
+        });
+    });
+
     it('should return an object', function(done){
     request(url)
         .get('/hello/foo')
