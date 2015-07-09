@@ -2,12 +2,6 @@ var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
-//Unit test
-describe('MongoDB', function() {
-    it('should be running', function() {
-        require('mongoose').connect('localhost:27017');
-    });
-});
 
 //Testing API
 describe('Routing', function() {
