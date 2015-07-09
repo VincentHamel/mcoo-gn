@@ -13,6 +13,15 @@ md \data\db
 ```
 This will create the folder to hold your DBs.
 
+## NPM packages
+To install node(npm) packages you need to
+```
+cd your_source_folder
+cd backend
+npm install
+```
+Those packages are libraries that we use in the server. For example, mongoose is a library to help us communicate with MongoDB.
+
 # Run
 ## MongoDB
 You ALWAYS need to start MongoDB before running the node server. In a command prompt
@@ -29,7 +38,7 @@ cd backend
 npm install
 npm start
 ```
-The ```npm start``` will launch your server instance. ```npm install``` needs to be run every time you pull new source code from the main repo.
+The ```npm start``` will launch your server instance. ```npm install``` needs to be run **every** time you pull new source code from the main repo.
 
 # Testing
 You can use [Postman](https://www.getpostman.com/) to interract with the REST API now running on localhost:8080.
@@ -39,6 +48,15 @@ To run the unit tests you need to be in the backend folder.
 ```
 npm test
 ```
+
+# Documentation
+[Mocha](http://mochajs.org/#getting-started) (unit test)
+[Should](https://shouldjs.github.io/) (unit test)
+[NodeJS](https://nodejs.org/api/) (backend logic)
+[Assert](https://nodejs.org/api/assert.html) (unit test)
+[Supertest](https://github.com/visionmedia/supertest) (integration test)
+[MongoDB](http://docs.mongodb.org/manual/) (db)
+[Mongoose](http://mongoosejs.com/docs/guide.html) (db ORM)
 
 #Problems
 ## Error: connect ECONNREFUSED 127.0.0.1:27017
