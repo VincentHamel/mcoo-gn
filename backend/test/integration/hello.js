@@ -6,7 +6,7 @@ var request = require('supertest');
 //Testing API
 describe('Routing', function() {
   var url = 'localhost:8080';
-  // use describe to give a title to your test suite, in this case the tile is "Account"
+  // use describe to give a title to your test suite, in this case the tile is "HelloWorld"
   // and then specify a function in which we are going to declare all the tests
   // we want to run. Each test starts with the function it() and as a first argument
   // we have to provide a meaningful title for it, whereas as the second argument we
@@ -17,7 +17,7 @@ describe('Routing', function() {
     it('should return error trying to get non-existing helloworld', function(done) {
     // once we have specified the info we want to send to the server via POST verb,
     // we need to actually perform the action on the resource, in this case we want to
-    // POST on /api/profiles and we want to send some info
+    // POST on /hello/foobar42 and we want to send some info
     // We do this using the request object, requiring supertest!
     request(url)
     .get('/hello/foobar42')

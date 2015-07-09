@@ -52,7 +52,7 @@ router.route('/hello/:name')
                 res.status(404);
                 res.json({message: "Hello not found"});
             } else
-                res.send(hello);
+                res.json(hello);
         });
     });
 
