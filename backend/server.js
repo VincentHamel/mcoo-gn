@@ -1,5 +1,3 @@
-// server.js
-
 // BASE SETUP
 // =============================================================================
 
@@ -11,11 +9,13 @@ var bodyParser = require('body-parser');
 //Mongo
 var mongoose   = require('mongoose');
 mongoose.connect('localhost:27017'); // connect to our database
-var HelloWorld = require('./app/models/hello.js');
+var HelloWorld = require('./app/models/hello');
+
+//Foo bar
+var foo = require('./app/models/foo');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var port = 8080;        // set our port
@@ -23,6 +23,10 @@ var port = 8080;        // set our port
 // ROUTES FOR OUR API
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
+
+router.get('/foo', function(req, res) {
+    res.json({message : foo()});
+});
 
 router.route('/hello')
     // create hello (accessed at POST http://localhost:8080/hello)
