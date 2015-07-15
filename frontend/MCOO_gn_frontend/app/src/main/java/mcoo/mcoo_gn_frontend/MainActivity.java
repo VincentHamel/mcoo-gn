@@ -1,8 +1,5 @@
 package mcoo.mcoo_gn_frontend;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,8 +10,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -26,17 +26,19 @@ public class MainActivity extends ActionBarActivity {
 
         final TextView message = (TextView)findViewById(R.id.message);
 
-        // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://www.google.com";
+        String url ="http://ip.jsontest.com/";
 
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
+        JsonObjectRequest messageRequest = new JsonObjectRequest(Request.Method.GET, url,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        message.setText("Response is: "+ response.substring(0,100));
+                    public void onResponse(JSONObject response) {
+                        try {
+                            String ip = response.getString("ip");
+                            message.setText("My public ip is: " + ip);
+                        } catch (JSONException e) {
+                            message.setText("Invalid JSON");
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -45,8 +47,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
+        queue.add(messageRequest);
     }
 
     @Override
