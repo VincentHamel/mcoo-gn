@@ -27,15 +27,15 @@ public class MainActivity extends ActionBarActivity {
         final TextView message = (TextView)findViewById(R.id.message);
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://ip.jsontest.com/";
+        String url ="http://192.168.43.252:8080/foo";
 
         JsonObjectRequest messageRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            String ip = response.getString("ip");
-                            message.setText("My public ip is: " + ip);
+                            String msg = response.getString("message");
+                            message.setText("Foo?  " + msg);
                         } catch (JSONException e) {
                             message.setText("Invalid JSON");
                         }
@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                message.setText("That didn't work!");
+                message.setText("That didn't work!" + error.toString());
             }
         });
 
