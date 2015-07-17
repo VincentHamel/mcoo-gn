@@ -12,6 +12,7 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        apply from: 'server-config.gradle', to: debug
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

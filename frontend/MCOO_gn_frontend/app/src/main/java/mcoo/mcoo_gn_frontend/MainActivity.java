@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
         final TextView message = (TextView)findViewById(R.id.message);
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://192.168.43.252:8080/foo";
+        String url ="http://" + BuildConfig.SERVER_ENDPOINT + "/foo";
 
         JsonObjectRequest messageRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
