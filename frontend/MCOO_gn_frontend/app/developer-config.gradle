@@ -12,4 +12,4 @@
 buildConfigField "String", "SERVER_ENDPOINT", "\"10.0.2.2:8080\""
 
 // When using an emulator, 10.0.2.2 should be used to communicate with
-// the hosting machine.
+// the host machine.
