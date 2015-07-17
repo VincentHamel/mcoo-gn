@@ -1,1 +1,0 @@
-# MCOO Grandeur Nature
