@@ -1,7 +1,15 @@
 // Change this to the endpoint where your REST API is running.
+
 // Do NOT include "http://" or end with a "/".
+
 // Example: buildConfigFeld "String", "SERVER_URL", "\"10.0.2.2:8080\""
 // replace 10.0.2.2:8080 with your endpoint:port
-// If you are using an emulator, you will want to set your endpoint to 10.0.2.2
-// to communicate with your machine.
+
+
+// If you have made changes to this file, DO NOT CHECK THEM IN.
+// This is a config specific to every developer.
+
 buildConfigField "String", "SERVER_ENDPOINT", "\"10.0.2.2:8080\""
+
+// When using an emulator, 10.0.2.2 should be used to communicate with
+// the hosting machine.
