@@ -56,3 +56,6 @@ endpoint accordingly (follow the documentation in the file).
 
 **Note**: your device and server must be able to communicate together. For example,
 you will not be able to have them communicate over different subnets at the university.
+**Note**: you may run into firewall issues. If your communication fails and you don't
+know why, make sure that your software firewall allows inbound connections on the port
+your server is running on.
