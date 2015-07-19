@@ -1,3 +1,5 @@
+# PocketGN Frontend
+## Android Studio Setup
 download :	 https://developer.android.com/sdk/index.html#top
 			 pour faire fonctionner l'emul plus vite (pas encore tester et en phase de test par google): 
 			 http://developer.android.com/tools/devices/emulator.html#acceleration
@@ -30,3 +32,30 @@ pour voir quelque chose au debut)
 l'emul l'application va s'installer sur l'emul et partir
 
 TADA C'EST FINI
+
+## Running the Frontend and Backend Together
+First, make sure that `mongod` (db) and `node server.js` (REST API) are running
+so that your frontend and backend can communicate together.
+
+Next, you'll want to make sure that `app/developer-config.gradle` contains the right
+endpoint for your server.
+### Using the Emulator
+If you are using the emulator, the defaults *should* be fine.
+### Using a Real Device
+If you are using a real device, you must put the IP address of the computer
+the server is running on. Here we assume that both the computer and device
+are on the same LAN.
+
+To figure out the IP address on your computer, you must do the following in a
+command prompt:
+- `ipconfig` on Windows
+- `ip addr` or `ifconfig` on Linux
+
+You can then go in your `app/developer-config.gradle` config to update your server
+endpoint accordingly (follow the documentation in the file).
+
+**Note**: your device and server must be able to communicate together. For example,
+you will not be able to have them communicate over different subnets at the university.
+**Note**: you may run into firewall issues. If your communication fails and you don't
+know why, make sure that your software firewall allows inbound connections on the port
+your server is running on.
