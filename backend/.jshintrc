@@ -1,0 +1,21 @@
+{
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": true,
+  "eqeqeq": true,
+  "indent": 2,
+  "latedef": true,
+  "noarg": true,
+  "newcap": false,
+  "quotmark": "single",
+  "undef": true,
+  "unused": true,
+  "strict": false,
+  "trailing": true,
+  "smarttabs": true,
+  "shadow": true,
+  "globals": {
+    "it": false
+  }
+}
