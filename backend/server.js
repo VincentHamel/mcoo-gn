@@ -71,7 +71,7 @@ router.route('/character')
 		character.skills = req.body.skills;
 		character.xp = req.body.xp;
 
-        // save the hello and check for errors
+        // save the character and check for errors
         character.save(function(err) {
 
             if (err) {
