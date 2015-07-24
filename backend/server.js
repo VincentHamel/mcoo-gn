@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 mongoose.connect('localhost:27017'); // connect to our database
 var HelloWorld = require('./app/models/hello');
+var Character = require('./app/models/character');
 
 //Foo bar
 var foo = require('./app/models/foo');
@@ -53,6 +54,45 @@ router.route('/hello/:name')
                 res.json({message: "Hello not found"});
             } else
                 res.json(hello);
+        });
+    });
+	
+router.route('/character')
+    // create character (accessed at POST http://localhost:8080/character)
+    .post(function(req, res) {
+        var character = new Character();
+        character.name = req.body.name;
+		character.nationality = req.body.nationality;
+		character.race = req.body.race;
+		character.profession = req.body.profession;
+		character.class = req.body.class;
+		character.belief = req.body.belief;
+		character.max_hp = req.body.max_hp;
+		character.skills = req.body.skills;
+		character.xp = req.body.xp;
+
+        // save the hello and check for errors
+        character.save(function(err) {
+
+            if (err) {
+				res.status(400);
+                res.json({ message: err.message, name: err.name })
+			}
+            else
+                res.json({ message: 'Character created!' });
+        });
+    });
+	
+router.route('/character/:name')
+    .get(function(req, res) {
+        Character.findOne({name : req.params.name}, function(err, character) {
+            if(err)
+                res.send(err);
+            else if(!character) {
+                res.status(404);
+                res.json({message: "Character not found"});
+            } else
+                res.json(character);
         });
     });
 
