@@ -2,6 +2,10 @@ package mcoo.mcoo_gn_frontend;
 
 public class CharacterRepositoryFactory {
     static public CharacterRepository getCharacterRepository(){
-        return new FakeCharacterRepository();
+        if(! BuildConfig.USE_REAL_API) {
+            return new FakeCharacterRepository();
+        } else{
+            return new FakeCharacterRepository();
+        }
     }
 }

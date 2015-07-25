@@ -1,17 +1,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     tools:context="mcoo.mcoo_gn_frontend.CharacterActivity"
     android:orientation="vertical"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:background="@drawable/custom_background">
 
     <TextView android:text="Name"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_alignBaseline="@+id/character_name"/>
 
     <EditText
@@ -28,10 +31,12 @@
         android:layout_alignParentTop="true"/>
 
     <TextView android:text="Nationality "
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelNationality"
         android:layout_alignParentLeft="true"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/character_labelName"
         android:layout_alignBaseline="@+id/character_nationality"/>
 
@@ -49,10 +54,12 @@
         android:layout_below="@+id/character_name"/>
 
     <TextView android:text="Race "
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelRace"
         android:layout_alignParentLeft="true"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/character_labelNationality"
         android:layout_alignBaseline="@+id/character_race"/>
 
@@ -70,10 +77,12 @@
         android:layout_below="@+id/character_nationality"/>
 
     <TextView android:text="Profession "
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelProfession"
         android:layout_alignParentLeft="true"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/character_labelRace"
         android:layout_alignBaseline="@+id/character_profession"/>
 
@@ -91,10 +100,12 @@
         android:layout_below="@+id/character_race"/>
 
     <TextView android:text="Class "
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelClass"
         android:layout_alignParentLeft="true"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/character_labelProfession"
         android:layout_alignBaseline="@+id/character_class"/>
 
@@ -112,10 +123,12 @@
         android:layout_below="@+id/character_profession"/>
 
     <TextView android:text="Belief "
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelBelief"
         android:layout_alignParentLeft="true"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/character_labelClass"
         android:layout_alignBaseline="@+id/character_belief"/>
 
@@ -133,10 +146,12 @@
         android:layout_below="@+id/character_class"/>
 
     <TextView android:text="Max HP "
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelMax_hp"
         android:layout_alignParentLeft="true"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/character_labelBelief"
         android:layout_alignBaseline="@+id/character_max_hp"/>
 
@@ -154,9 +169,11 @@
         android:layout_below="@+id/character_belief"/>
 
     <TextView android:text="Skills "
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelSkills"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/character_max_hp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -167,13 +184,17 @@
         android:id="@+id/character_skills"
         android:layout_below="@+id/character_max_hp"
         android:layout_toRightOf="@+id/character_labelSkills"
-        android:layout_gravity="center_vertical" />
+        android:textColor="#ff000000"
+        android:layout_gravity="center_vertical"
+        android:divider="#00000000"/>
 
     <TextView android:text="XP "
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/character_labelXp"
         android:layout_alignParentLeft="true"
+        android:textColor="#ff000000"
+        android:paddingLeft="5dp"
         android:layout_below="@+id/character_labelSkills"
         android:layout_alignBaseline="@+id/character_xp"/>
 
@@ -189,5 +210,25 @@
         android:background="@android:drawable/editbox_background"
         android:layout_toRightOf="@+id/character_labelXp"
         android:layout_below="@+id/character_skills"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:id="@+id/character_edit_button"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/character_labelXp"
+        android:onClick="onClickEditCharacter"
+        android:visibility="visible"  />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/character_update_button"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/character_labelXp"
+        android:onClick="onClickUpdateCharacter"
+        android:visibility="invisible" />
 
 </RelativeLayout>
