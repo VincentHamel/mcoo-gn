@@ -18,8 +18,8 @@ public class CharacterSheetTest {
 
     @Before
     public void setUp() throws Exception {
-        character = new CharacterSheet("class", "race", "profession",
-                "name", "nationality", "belief", 100,
+        character = new CharacterSheet(1, "name", "nationality", "race", "profession", "class",
+                "belief", 100,
                 new ArrayList<String>() {
                     {
                         add("skill1");

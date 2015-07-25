@@ -17,19 +17,27 @@ public class CharacterSheet {
     List<String> skills;
     int xp;
 
-    public CharacterSheet(String characterClass, String race, String profession,
-                          String name, String nationality, String belief, int maxHp,
+
+
+    int id;
+
+    public CharacterSheet(int id, String name, String nationality, String race,
+                          String profession, String characterClass,
+                          String belief, int maxHp,
                           List<String> skills, int xp){
-        this.characterClass = characterClass;
+        this.id = id;
+        this.name = name;
         this.nationality = nationality;
+        this.race = race;
         this.profession = profession;
+        this.characterClass = characterClass;
         this.belief = belief;
         this.skills = skills;
         this.maxHp = maxHp;
-        this.race = race;
-        this.name = name;
         this.xp = xp;
     }
+
+    public int getId() { return id; }
 
     public String getCharacterClass() {
         return characterClass;
