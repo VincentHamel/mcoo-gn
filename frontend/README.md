@@ -33,6 +33,11 @@ l'emul l'application va s'installer sur l'emul et partir
 
 TADA C'EST FINI
 
+## JUnit
+To add a new unit test:
+- Create your test. You can do this by opening a class, right-clicking it's name and selecting "Go to > Test". Add some test cases.
+- Right click your new test class or method and select "Run ...".
+
 ## Running the Frontend and Backend Together
 First, make sure that `mongod` (db) and `node server.js` (REST API) are running
 so that your frontend and backend can communicate together.
