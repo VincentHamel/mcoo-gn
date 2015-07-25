@@ -7,21 +7,18 @@ package mcoo.mcoo_gn_frontend;
 import java.util.List;
 
 public class CharacterSheet {
-    String race;
-    String characterClass;
-    String profession;
+    String id;
     String name;
     String nationality;
+    String race;
+    String profession;
+    String characterClass;
     String belief;
     int maxHp;
     List<String> skills;
     int xp;
 
-
-
-    int id;
-
-    public CharacterSheet(int id, String name, String nationality, String race,
+    public CharacterSheet(String id, String name, String nationality, String race,
                           String profession, String characterClass,
                           String belief, int maxHp,
                           List<String> skills, int xp){
@@ -37,7 +34,7 @@ public class CharacterSheet {
         this.xp = xp;
     }
 
-    public int getId() { return id; }
+    public String getId() { return id; }
 
     public String getCharacterClass() {
         return characterClass;
