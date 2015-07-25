@@ -1,7 +1,8 @@
 package mcoo.mcoo_gn_frontend;
 
-import android.os.Parcelable;
+import com.android.volley.Response;
 
-public interface CharacterRepository{
-   abstract CharacterSheet findById(int id);
+public interface CharacterRepository {
+    void findById(String id, Response.Listener<CharacterSheet> onSuccess,
+                            Response.ErrorListener onError);
 }
