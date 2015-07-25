@@ -1,0 +1,193 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    tools:context="mcoo.mcoo_gn_frontend.CharacterActivity"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true">
+
+    <TextView android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBaseline="@+id/character_name"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:id="@+id/character_name"
+        android:hint="Name "
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/character_labelName"
+        android:layout_alignParentTop="true"/>
+
+    <TextView android:text="Nationality "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelNationality"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/character_labelName"
+        android:layout_alignBaseline="@+id/character_nationality"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Nationality"
+        android:id="@+id/character_nationality"
+        android:hint="Nationality"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/character_labelNationality"
+        android:layout_below="@+id/character_name"/>
+
+    <TextView android:text="Race "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelRace"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/character_labelNationality"
+        android:layout_alignBaseline="@+id/character_race"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Race"
+        android:id="@+id/character_race"
+        android:hint="Race"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/character_labelRace"
+        android:layout_below="@+id/character_nationality"/>
+
+    <TextView android:text="Profession "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelProfession"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/character_labelRace"
+        android:layout_alignBaseline="@+id/character_profession"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Profession"
+        android:id="@+id/character_profession"
+        android:hint="Profession"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/character_labelProfession"
+        android:layout_below="@+id/character_race"/>
+
+    <TextView android:text="Class "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelClass"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/character_labelProfession"
+        android:layout_alignBaseline="@+id/character_class"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Class"
+        android:id="@+id/character_class"
+        android:hint="Class"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/character_labelClass"
+        android:layout_below="@+id/character_profession"/>
+
+    <TextView android:text="Belief "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelBelief"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/character_labelClass"
+        android:layout_alignBaseline="@+id/character_belief"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Belief"
+        android:id="@+id/character_belief"
+        android:hint="Belief"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/character_labelBelief"
+        android:layout_below="@+id/character_class"/>
+
+    <TextView android:text="Max HP "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelMax_hp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/character_labelBelief"
+        android:layout_alignBaseline="@+id/character_max_hp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="Max HP"
+        android:id="@+id/character_max_hp"
+        android:hint="Max HP"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/character_labelMax_hp"
+        android:layout_below="@+id/character_belief"/>
+
+    <TextView android:text="Skills "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelSkills"
+        android:layout_below="@+id/character_max_hp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="173dp"
+        android:id="@+id/character_skills"
+        android:layout_below="@+id/character_max_hp"
+        android:layout_toRightOf="@+id/character_labelSkills"
+        android:layout_gravity="center_vertical" />
+
+    <TextView android:text="XP "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_labelXp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/character_labelSkills"
+        android:layout_alignBaseline="@+id/character_xp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="XP"
+        android:id="@+id/character_xp"
+        android:hint="XP"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/character_labelXp"
+        android:layout_below="@+id/character_skills"/>
+
+</RelativeLayout>

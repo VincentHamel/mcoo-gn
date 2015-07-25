@@ -1,9 +1,11 @@
 package mcoo.mcoo_gn_frontend;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -24,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView message = (TextView)findViewById(R.id.message);
+        /*final TextView message = (TextView)findViewById(R.id.message);
 
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://" + BuildConfig.SERVER_ENDPOINT + "/foo";
@@ -53,7 +55,12 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        queue.add(messageRequest);
+        queue.add(messageRequest);*/
+    }
+
+    public void onClickLogin(View v){
+        Intent intent = new Intent(this, CharacterActivity.class);
+        startActivity(intent);
     }
 
     @Override
