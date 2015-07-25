@@ -8,7 +8,7 @@
   "latedef": true,
   "noarg": true,
   "newcap": false,
-  "quotmark": "single",
+  "quotmark": false,
   "undef": true,
   "unused": true,
   "strict": false,
@@ -16,6 +16,8 @@
   "smarttabs": true,
   "shadow": true,
   "globals": {
-    "it": false
+    "it": false,
+    "describe": false,
+    "after": false
   }
 }
