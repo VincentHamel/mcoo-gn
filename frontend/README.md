@@ -30,3 +30,10 @@ pour voir quelque chose au debut)
 l'emul l'application va s'installer sur l'emul et partir
 
 TADA C'EST FINI
+
+
+
+## JUnit
+To add a new unit test:
+- Create your test. You can do this by opening a class, right-clicking it's name and selecting "Go to > Test". Add some test cases.
+- Right click your new test class or method and select "Run ...".
