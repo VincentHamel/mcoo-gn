@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,15 +18,15 @@ public class CharacterActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
 
-        TextView textViewCharacterName = (TextView) findViewById(R.id.character_name);
-        TextView textViewCharacterNationality = (TextView) findViewById(R.id.character_nationality);
-        TextView textViewCharacterRace = (TextView) findViewById(R.id.character_race);
-        TextView textViewCharacterProfession = (TextView) findViewById(R.id.character_profession);
-        TextView textViewCharacterClass = (TextView) findViewById(R.id.character_class);
-        TextView textViewCharacterBelief = (TextView) findViewById(R.id.character_belief);
-        TextView textViewCharacterMaxHP = (TextView) findViewById(R.id.character_max_hp);
+        EditText textViewCharacterName = (EditText) findViewById(R.id.character_name);
+        EditText textViewCharacterNationality = (EditText) findViewById(R.id.character_nationality);
+        EditText textViewCharacterRace = (EditText) findViewById(R.id.character_race);
+        EditText textViewCharacterProfession = (EditText) findViewById(R.id.character_profession);
+        EditText textViewCharacterClass = (EditText) findViewById(R.id.character_class);
+        EditText textViewCharacterBelief = (EditText) findViewById(R.id.character_belief);
+        EditText textViewCharacterMaxHP = (EditText) findViewById(R.id.character_max_hp);
         ListView listViewSkills = (ListView) findViewById(R.id.character_skills);
-        TextView textViewCharacterXP = (TextView) findViewById(R.id.character_xp);
+        EditText textViewCharacterXP = (EditText) findViewById(R.id.character_xp);
 
         String[] skills = {"meditation","decrypt"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), android.R.layout.simple_list_item_1, skills);
