@@ -12,6 +12,7 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        apply from: 'developer-config.gradle', to: debug
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -20,7 +21,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.mcxiaoke.volley:library:1.0.17'
 }
