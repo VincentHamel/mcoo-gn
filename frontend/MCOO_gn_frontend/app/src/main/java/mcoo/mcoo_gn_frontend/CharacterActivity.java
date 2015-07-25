@@ -1,9 +1,12 @@
 package mcoo.mcoo_gn_frontend;
 
+import android.app.ListActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -14,8 +17,28 @@ public class CharacterActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
 
-        TextView textView = (TextView) findViewById(R.id.character_name);
-        textView.setText("Michaël");
+        TextView textViewCharacterName = (TextView) findViewById(R.id.character_name);
+        TextView textViewCharacterNationality = (TextView) findViewById(R.id.character_nationality);
+        TextView textViewCharacterRace = (TextView) findViewById(R.id.character_race);
+        TextView textViewCharacterProfession = (TextView) findViewById(R.id.character_profession);
+        TextView textViewCharacterClass = (TextView) findViewById(R.id.character_class);
+        TextView textViewCharacterBelief = (TextView) findViewById(R.id.character_belief);
+        TextView textViewCharacterMaxHP = (TextView) findViewById(R.id.character_max_hp);
+        ListView listViewSkills = (ListView) findViewById(R.id.character_skills);
+        TextView textViewCharacterXP = (TextView) findViewById(R.id.character_xp);
+
+        String[] skills = {"meditation","decrypt"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), android.R.layout.simple_list_item_1, skills);
+        listViewSkills.setAdapter(adapter);
+
+        textViewCharacterName.setText("Michael");
+        textViewCharacterNationality.setText("French");
+        textViewCharacterRace.setText("Dwarf");
+        textViewCharacterProfession.setText("Forgeron");
+        textViewCharacterClass.setText("Wizard");
+        textViewCharacterBelief.setText("My belief");
+        textViewCharacterMaxHP.setText("300");
+        textViewCharacterXP.setText("4");
     }
 
     @Override

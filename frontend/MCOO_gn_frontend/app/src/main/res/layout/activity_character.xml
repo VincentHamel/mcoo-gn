@@ -6,9 +6,58 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="mcoo.mcoo_gn_frontend.CharacterActivity">
 
-    <TextView android:text="@string/hello_world"
+    <TextView android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/character_name"/>
+    android:id="@+id/character_name"/>
 
+    <TextView android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/character_name"
+        android:id="@+id/character_nationality"/>
+
+    <TextView android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/character_nationality"
+        android:id="@+id/character_race"/>
+
+    <TextView android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/character_race"
+        android:id="@+id/character_profession"/>
+
+    <TextView android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/character_profession"
+        android:id="@+id/character_class"/>
+
+    <TextView android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/character_class"
+        android:id="@+id/character_belief"/>
+
+    <TextView android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/character_belief"
+        android:id="@+id/character_max_hp"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/character_skills"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/character_max_hp"/>
+
+    <TextView android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/character_skills"
+        android:id="@+id/character_xp"/>
 </RelativeLayout>
