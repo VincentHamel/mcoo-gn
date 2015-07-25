@@ -76,7 +76,7 @@ router.route('/character')
 
     if (err) {
       res.status(400);
-      res.json({ message: err.message, name: err.name })
+      res.json({ message: err.message, name: err.name });
     }
     else
       res.json({ message: 'Character created!' });
