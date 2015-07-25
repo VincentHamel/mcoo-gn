@@ -79,6 +79,14 @@ public class CharacterSheet {
         this.belief = belief;
     }
 
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
     public int getMaxHp() {
         return maxHp;
     }

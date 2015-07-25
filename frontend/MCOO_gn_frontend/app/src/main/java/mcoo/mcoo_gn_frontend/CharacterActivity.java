@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.List;
+
 
 public class CharacterActivity extends ActionBarActivity {
 
@@ -17,6 +19,8 @@ public class CharacterActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
+
+        CharacterSheet character = CharacterRepositoryFactory.getCharacterRepository().findById(1);
 
         EditText textViewCharacterName = (EditText) findViewById(R.id.character_name);
         EditText textViewCharacterNationality = (EditText) findViewById(R.id.character_nationality);
@@ -28,18 +32,18 @@ public class CharacterActivity extends ActionBarActivity {
         ListView listViewSkills = (ListView) findViewById(R.id.character_skills);
         EditText textViewCharacterXP = (EditText) findViewById(R.id.character_xp);
 
-        String[] skills = {"meditation","decrypt"};
+        List<String> skills = character.getSkills();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), android.R.layout.simple_list_item_1, skills);
         listViewSkills.setAdapter(adapter);
 
-        textViewCharacterName.setText("Michael");
-        textViewCharacterNationality.setText("French");
-        textViewCharacterRace.setText("Dwarf");
-        textViewCharacterProfession.setText("Forgeron");
-        textViewCharacterClass.setText("Wizard");
-        textViewCharacterBelief.setText("My belief");
-        textViewCharacterMaxHP.setText("300");
-        textViewCharacterXP.setText("4");
+        textViewCharacterName.setText(character.getName());
+        textViewCharacterNationality.setText(character.getNationality());
+        textViewCharacterRace.setText(character.getRace());
+        textViewCharacterProfession.setText(character.getProfession());
+        textViewCharacterClass.setText(character.getCharacterClass());
+        textViewCharacterBelief.setText(character.getBelief());
+        textViewCharacterMaxHP.setText(String.valueOf(character.getMaxHp()));
+        textViewCharacterXP.setText(String.valueOf(character.getXp()));
     }
 
     @Override

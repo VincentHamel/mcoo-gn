@@ -163,7 +163,7 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="173dp"
+        android:layout_height="wrap_content"
         android:id="@+id/character_skills"
         android:layout_below="@+id/character_max_hp"
         android:layout_toRightOf="@+id/character_labelSkills"

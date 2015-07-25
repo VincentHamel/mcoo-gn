@@ -11,7 +11,7 @@ public class FakeCharacterRepository implements CharacterRepository {
     @Override
     public CharacterSheet findById(int id) {
         CharacterSheet fakeSheet = new CharacterSheet(id, "McTesto", "Scottish", "Human", "Musician",
-                "Bard", "Pagan", 500, new ArrayList<String>(Arrays.asList("berseker")), 10);
+                "Bard", "Pagan", 500, new ArrayList<String>(Arrays.asList("berseker","meditation","programmation")), 10);
         return fakeSheet;
     }
 }
