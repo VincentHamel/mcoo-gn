@@ -40,6 +40,10 @@ npm start
 ```
 The ```npm start``` will launch your server instance. ```npm install``` needs to be run **every** time you pull new source code from the main repo.
 
+## Nodemon
+Instead of retype 'node server.js' every time you do modifications in files, type 'nodemon server.js' once and every time you do a modification, 
+the server instance will automaticly restart.
+
 # Testing
 You can use [Postman](https://www.getpostman.com/) to interract with the REST API now running on localhost:8080.
 
