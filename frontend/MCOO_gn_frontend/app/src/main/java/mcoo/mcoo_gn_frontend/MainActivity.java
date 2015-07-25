@@ -29,6 +29,12 @@ public class MainActivity extends ActionBarActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://" + BuildConfig.SERVER_ENDPOINT + "/foo";
 
+        CharacterRepository characters;
+
+        if(! BuildConfig.USE_REAL_API){
+            characters = new FakeCharacterRepository();
+        }
+
         JsonObjectRequest messageRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
                     @Override

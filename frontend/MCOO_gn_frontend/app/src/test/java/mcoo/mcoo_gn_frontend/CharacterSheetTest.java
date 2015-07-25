@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Erika on 2015-07-25.
@@ -20,12 +21,7 @@ public class CharacterSheetTest {
     public void setUp() throws Exception {
         character = new CharacterSheet(1, "name", "nationality", "race", "profession", "class",
                 "belief", 100,
-                new ArrayList<String>() {
-                    {
-                        add("skill1");
-                        add("skill2");
-                    }
-                },
+                new ArrayList<String>(Arrays.asList("skill1","skill2")),
                 450);
     }
 
