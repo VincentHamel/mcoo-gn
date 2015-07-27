@@ -10,6 +10,7 @@
 // This is a config specific to every developer.
 
 buildConfigField "String", "SERVER_ENDPOINT", "\"10.0.2.2:8080\""
+buildConfigField "Boolean", "USE_REAL_API", "false"
 
 // When using an emulator, 10.0.2.2 should be used to communicate with
 // the host machine.

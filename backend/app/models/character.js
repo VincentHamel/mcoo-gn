@@ -10,7 +10,7 @@ function validatorSkills(v) {
 }
 
 var CharacterSchema = new Schema({
-    name: {type: String, unique: true},
+    name: String,
     nationality: String,
     race: {type: String, enum: ['humain', 'elf', 'dwarf']},
     profession: {type: String, enum: ['botanist', 'miner', 'forgeron', 'scribe', 'trader']},
