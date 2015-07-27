@@ -44,4 +44,12 @@ public class MainActivity extends ActionBarActivity {
     public void loginClick(View v){
             setContentView(R.layout.character);
     }
+    public void characterClick(View v){
+        setContentView(R.layout.realplayer);
+    }
+
+
+   // public void NouveauButton(View v) {setContentView(R.layout.wabajaba);}
+
+
 }
