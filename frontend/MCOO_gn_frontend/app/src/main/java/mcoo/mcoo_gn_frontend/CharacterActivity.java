@@ -9,6 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+
+import com.android.volley.VolleyError;
+import com.android.volley.Response;
 
 import java.util.List;
 
@@ -30,8 +34,7 @@ public class CharacterActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
 
-        CharacterSheet character = CharacterRepositoryFactory.getCharacterRepository().findById(1);
-
+        //Must always be done because these items are used in onClick events
         textViewCharacterName = (EditText) findViewById(R.id.character_name);
         textViewCharacterNationality = (EditText) findViewById(R.id.character_nationality);
         textViewCharacterRace = (EditText) findViewById(R.id.character_race);
@@ -44,18 +47,32 @@ public class CharacterActivity extends ActionBarActivity {
         buttonEditCharacter = (Button) findViewById(R.id.character_edit_button);
         buttonUpdateCharacter = (Button) findViewById(R.id.character_update_button);
 
-        List<String> skills = character.getSkills();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), R.layout.custom_edittext, skills);
-        listViewSkills.setAdapter(adapter);
+        RepositoryFactory.getCharacterRepository(this).findById("55b647c2924605dc0c7c8484", new Response.Listener<CharacterSheet>() {
+            @Override
+            public void onResponse(CharacterSheet c) {
+                List<String> skills = c.getSkills();
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), R.layout.custom_edittext, skills);
+                listViewSkills.setAdapter(adapter);
 
-        textViewCharacterName.setText(character.getName());
-        textViewCharacterNationality.setText(character.getNationality());
-        textViewCharacterRace.setText(character.getRace());
-        textViewCharacterProfession.setText(character.getProfession());
-        textViewCharacterClass.setText(character.getCharacterClass());
-        textViewCharacterBelief.setText(character.getBelief());
-        textViewCharacterMaxHP.setText(String.valueOf(character.getMaxHp()));
-        textViewCharacterXP.setText(String.valueOf(character.getXp()));
+                textViewCharacterName.setText(c.getName());
+                textViewCharacterNationality.setText(c.getNationality());
+                textViewCharacterRace.setText(c.getRace());
+                textViewCharacterProfession.setText(c.getProfession());
+                textViewCharacterClass.setText(c.getCharacterClass());
+                textViewCharacterBelief.setText(c.getBelief());
+                textViewCharacterMaxHP.setText(String.valueOf(c.getMaxHp()));
+                textViewCharacterXP.setText(String.valueOf(c.getXp()));
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                RelativeLayout character_layout = (RelativeLayout) findViewById(R.id.character_layout);
+                character_layout.setVisibility(View.INVISIBLE);
+
+                RelativeLayout character_layout_404 = (RelativeLayout) findViewById(R.id.character_layout_404);
+                character_layout_404.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override

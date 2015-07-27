@@ -1,234 +1,272 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
+<FrameLayout
     android:layout_height="fill_parent"
-    tools:context="mcoo.mcoo_gn_frontend.CharacterActivity"
-    android:orientation="vertical"
-    android:focusableInTouchMode="true"
-    android:background="@drawable/custom_background">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="vertical">
 
-    <TextView android:text="Name"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_alignBaseline="@+id/character_name"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/character_layout_404"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context="mcoo.mcoo_gn_frontend.CharacterActivity"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        android:layout_gravity="top"
+        android:background="@drawable/custom_background">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:id="@+id/character_name"
-        android:hint="Name "
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/character_labelName"
-        android:layout_alignParentTop="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffff0000"
+            android:text="Character not found"
+            android:id="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
-    <TextView android:text="Nationality "
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelNationality"
-        android:layout_alignParentLeft="true"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/character_labelName"
-        android:layout_alignBaseline="@+id/character_nationality"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/character_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context="mcoo.mcoo_gn_frontend.CharacterActivity"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true"
+        android:layout_gravity="top"
+        android:background="@drawable/custom_background">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Nationality"
-        android:id="@+id/character_nationality"
-        android:hint="Nationality"
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/character_labelNationality"
-        android:layout_below="@+id/character_name"/>
+        <TextView android:text="Name"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_alignBaseline="@+id/character_name"/>
 
-    <TextView android:text="Race "
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelRace"
-        android:layout_alignParentLeft="true"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/character_labelNationality"
-        android:layout_alignBaseline="@+id/character_race"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:id="@+id/character_name"
+            android:hint="Name "
+            android:enabled="false"
+            android:textColor="#ff000000"
+            android:background="@android:drawable/editbox_background"
+            android:layout_toRightOf="@id/character_labelName"
+            android:layout_alignParentTop="true"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Race"
-        android:id="@+id/character_race"
-        android:hint="Race"
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/character_labelRace"
-        android:layout_below="@+id/character_nationality"/>
+        <TextView android:text="Nationality "
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelNationality"
+            android:layout_alignParentLeft="true"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_below="@id/character_labelName"
+            android:layout_alignBaseline="@+id/character_nationality"/>
 
-    <TextView android:text="Profession "
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelProfession"
-        android:layout_alignParentLeft="true"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/character_labelRace"
-        android:layout_alignBaseline="@+id/character_profession"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Nationality"
+            android:id="@+id/character_nationality"
+            android:hint="Nationality"
+            android:enabled="false"
+            android:textColor="#ff000000"
+            android:background="@android:drawable/editbox_background"
+            android:layout_toRightOf="@id/character_labelNationality"
+            android:layout_below="@id/character_name"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Profession"
-        android:id="@+id/character_profession"
-        android:hint="Profession"
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/character_labelProfession"
-        android:layout_below="@+id/character_race"/>
+        <TextView android:text="Race "
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelRace"
+            android:layout_alignParentLeft="true"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_below="@id/character_labelNationality"
+            android:layout_alignBaseline="@+id/character_race"/>
 
-    <TextView android:text="Class "
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelClass"
-        android:layout_alignParentLeft="true"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/character_labelProfession"
-        android:layout_alignBaseline="@+id/character_class"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Race"
+            android:id="@+id/character_race"
+            android:hint="Race"
+            android:enabled="false"
+            android:textColor="#ff000000"
+            android:background="@android:drawable/editbox_background"
+            android:layout_toRightOf="@id/character_labelRace"
+            android:layout_below="@id/character_nationality"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Class"
-        android:id="@+id/character_class"
-        android:hint="Class"
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/character_labelClass"
-        android:layout_below="@+id/character_profession"/>
+        <TextView android:text="Profession "
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelProfession"
+            android:layout_alignParentLeft="true"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_below="@id/character_labelRace"
+            android:layout_alignBaseline="@+id/character_profession"/>
 
-    <TextView android:text="Belief "
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelBelief"
-        android:layout_alignParentLeft="true"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/character_labelClass"
-        android:layout_alignBaseline="@+id/character_belief"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Profession"
+            android:id="@+id/character_profession"
+            android:hint="Profession"
+            android:enabled="false"
+            android:textColor="#ff000000"
+            android:background="@android:drawable/editbox_background"
+            android:layout_toRightOf="@id/character_labelProfession"
+            android:layout_below="@id/character_race"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Belief"
-        android:id="@+id/character_belief"
-        android:hint="Belief"
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/character_labelBelief"
-        android:layout_below="@+id/character_class"/>
+        <TextView android:text="Class "
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelClass"
+            android:layout_alignParentLeft="true"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_below="@id/character_labelProfession"
+            android:layout_alignBaseline="@+id/character_class"/>
 
-    <TextView android:text="Max HP "
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelMax_hp"
-        android:layout_alignParentLeft="true"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/character_labelBelief"
-        android:layout_alignBaseline="@+id/character_max_hp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Class"
+            android:id="@+id/character_class"
+            android:hint="Class"
+            android:enabled="false"
+            android:textColor="#ff000000"
+            android:background="@android:drawable/editbox_background"
+            android:layout_toRightOf="@id/character_labelClass"
+            android:layout_below="@id/character_profession"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:text="Max HP"
-        android:id="@+id/character_max_hp"
-        android:hint="Max HP"
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/character_labelMax_hp"
-        android:layout_below="@+id/character_belief"/>
+        <TextView android:text="Belief "
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelBelief"
+            android:layout_alignParentLeft="true"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_below="@id/character_labelClass"
+            android:layout_alignBaseline="@+id/character_belief"/>
 
-    <TextView android:text="Skills "
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelSkills"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/character_max_hp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Belief"
+            android:id="@+id/character_belief"
+            android:hint="Belief"
+            android:enabled="false"
+            android:textColor="#ff000000"
+            android:background="@android:drawable/editbox_background"
+            android:layout_toRightOf="@id/character_labelBelief"
+            android:layout_below="@id/character_class"/>
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_skills"
-        android:layout_below="@+id/character_max_hp"
-        android:layout_toRightOf="@+id/character_labelSkills"
-        android:textColor="#ff000000"
-        android:layout_gravity="center_vertical"
-        android:divider="#00000000"/>
+        <TextView android:text="Max HP "
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelMax_hp"
+            android:layout_alignParentLeft="true"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_below="@id/character_labelBelief"
+            android:layout_alignBaseline="@+id/character_max_hp"/>
 
-    <TextView android:text="XP "
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/character_labelXp"
-        android:layout_alignParentLeft="true"
-        android:textColor="#ff000000"
-        android:paddingLeft="5dp"
-        android:layout_below="@+id/character_labelSkills"
-        android:layout_alignBaseline="@+id/character_xp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="Max HP"
+            android:id="@+id/character_max_hp"
+            android:hint="Max HP"
+            android:enabled="false"
+            android:textColor="#ff000000"
+            android:background="@android:drawable/editbox_background"
+            android:layout_toRightOf="@id/character_labelMax_hp"
+            android:layout_below="@id/character_belief"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:text="XP"
-        android:id="@+id/character_xp"
-        android:hint="XP"
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/character_labelXp"
-        android:layout_below="@+id/character_skills"/>
+        <TextView android:text="Skills "
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelSkills"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_below="@id/character_max_hp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit"
-        android:id="@+id/character_edit_button"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/character_labelXp"
-        android:onClick="onClickEditCharacter"
-        android:visibility="visible"  />
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_skills"
+            android:layout_below="@id/character_max_hp"
+            android:layout_toRightOf="@id/character_labelSkills"
+            android:textColor="#ff000000"
+            android:layout_gravity="center_vertical"
+            android:divider="#00000000"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Update"
-        android:id="@+id/character_update_button"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/character_labelXp"
-        android:onClick="onClickUpdateCharacter"
-        android:visibility="invisible" />
+        <TextView android:text="XP "
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_labelXp"
+            android:layout_alignParentLeft="true"
+            android:textColor="#ff000000"
+            android:paddingLeft="5dp"
+            android:layout_below="@id/character_labelSkills"
+            android:layout_alignBaseline="@+id/character_xp"/>
 
-</RelativeLayout>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="XP"
+            android:id="@+id/character_xp"
+            android:hint="XP"
+            android:enabled="false"
+            android:textColor="#ff000000"
+            android:background="@android:drawable/editbox_background"
+            android:layout_toRightOf="@id/character_labelXp"
+            android:layout_below="@id/character_skills"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/character_labelXp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/linearLayout">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:id="@+id/character_edit_button"
+                android:onClick="onClickEditCharacter"
+                android:layout_below="@id/character_labelXp"
+                android:visibility="visible" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                android:id="@+id/character_update_button"
+                android:onClick="onClickUpdateCharacter"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</FrameLayout>

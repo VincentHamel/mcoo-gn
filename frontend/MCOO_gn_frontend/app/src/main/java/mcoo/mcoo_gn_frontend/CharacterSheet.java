@@ -1,9 +1,5 @@
 package mcoo.mcoo_gn_frontend;
 
-/**
- * Created by Erika on 2015-07-25.
- */
-
 import java.util.List;
 
 public class CharacterSheet {
@@ -120,6 +116,25 @@ public class CharacterSheet {
             throw new IllegalArgumentException("Can not add negative HP");
         }
         this.maxHp += addedHp;
+    }
+
+    // A better definition, but still not perfect
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof CharacterSheet) {
+            CharacterSheet that = (CharacterSheet) other;
+            result = (this.getId().equals(that.getId()) &&
+                    this.getCharacterClass().equals(that.getCharacterClass()) &&
+                    this.getProfession().equals(that.getProfession()) &&
+                    this.getName().equals(that.getName()) &&
+                    this.getNationality().equals(that.getNationality()) &&
+                    this.getBelief().equals(that.getBelief()) &&
+                    this.getRace().equals(that.getRace()) &&
+                    this.getMaxHp() == that.getMaxHp() &&
+                    this.getXp() == that.getXp() &&
+                    this.getSkills().equals(that.getSkills()));
+        }
+        return result;
     }
 }
 

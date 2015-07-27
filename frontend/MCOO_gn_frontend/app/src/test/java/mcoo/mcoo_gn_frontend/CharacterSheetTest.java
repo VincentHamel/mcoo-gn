@@ -19,7 +19,7 @@ public class CharacterSheetTest {
 
     @Before
     public void setUp() throws Exception {
-        character = new CharacterSheet(1, "name", "nationality", "race", "profession", "class",
+        character = new CharacterSheet("1", "name", "nationality", "race", "profession", "class",
                 "belief", 100,
                 new ArrayList<String>(Arrays.asList("skill1","skill2")),
                 450);
