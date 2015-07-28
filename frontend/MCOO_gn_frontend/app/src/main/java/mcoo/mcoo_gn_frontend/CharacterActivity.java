@@ -4,40 +4,75 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+
+import com.android.volley.VolleyError;
+import com.android.volley.Response;
+
+import java.util.List;
 
 
 public class CharacterActivity extends ActionBarActivity {
-
+    EditText textViewCharacterName;
+    EditText textViewCharacterNationality;
+    EditText textViewCharacterRace;
+    EditText textViewCharacterProfession;
+    EditText textViewCharacterClass;
+    EditText textViewCharacterBelief;
+    EditText textViewCharacterMaxHP;
+    ListView listViewSkills;
+    EditText textViewCharacterXP;
+    Button buttonEditCharacter;
+    Button buttonUpdateCharacter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
 
-        EditText textViewCharacterName = (EditText) findViewById(R.id.character_name);
-        EditText textViewCharacterNationality = (EditText) findViewById(R.id.character_nationality);
-        EditText textViewCharacterRace = (EditText) findViewById(R.id.character_race);
-        EditText textViewCharacterProfession = (EditText) findViewById(R.id.character_profession);
-        EditText textViewCharacterClass = (EditText) findViewById(R.id.character_class);
-        EditText textViewCharacterBelief = (EditText) findViewById(R.id.character_belief);
-        EditText textViewCharacterMaxHP = (EditText) findViewById(R.id.character_max_hp);
-        ListView listViewSkills = (ListView) findViewById(R.id.character_skills);
-        EditText textViewCharacterXP = (EditText) findViewById(R.id.character_xp);
+        //Must always be done because these items are used in onClick events
+        textViewCharacterName = (EditText) findViewById(R.id.character_name);
+        textViewCharacterNationality = (EditText) findViewById(R.id.character_nationality);
+        textViewCharacterRace = (EditText) findViewById(R.id.character_race);
+        textViewCharacterProfession = (EditText) findViewById(R.id.character_profession);
+        textViewCharacterClass = (EditText) findViewById(R.id.character_class);
+        textViewCharacterBelief = (EditText) findViewById(R.id.character_belief);
+        textViewCharacterMaxHP = (EditText) findViewById(R.id.character_max_hp);
+        listViewSkills = (ListView) findViewById(R.id.character_skills);
+        textViewCharacterXP = (EditText) findViewById(R.id.character_xp);
+        buttonEditCharacter = (Button) findViewById(R.id.character_edit_button);
+        buttonUpdateCharacter = (Button) findViewById(R.id.character_update_button);
 
-        String[] skills = {"meditation","decrypt"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), android.R.layout.simple_list_item_1, skills);
-        listViewSkills.setAdapter(adapter);
+        RepositoryFactory.getCharacterRepository(this).findById("55b647c2924605dc0c7c8484", new Response.Listener<CharacterSheet>() {
+            @Override
+            public void onResponse(CharacterSheet c) {
+                List<String> skills = c.getSkills();
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), R.layout.custom_edittext, skills);
+                listViewSkills.setAdapter(adapter);
 
-        textViewCharacterName.setText("Michael");
-        textViewCharacterNationality.setText("French");
-        textViewCharacterRace.setText("Dwarf");
-        textViewCharacterProfession.setText("Forgeron");
-        textViewCharacterClass.setText("Wizard");
-        textViewCharacterBelief.setText("My belief");
-        textViewCharacterMaxHP.setText("300");
-        textViewCharacterXP.setText("4");
+                textViewCharacterName.setText(c.getName());
+                textViewCharacterNationality.setText(c.getNationality());
+                textViewCharacterRace.setText(c.getRace());
+                textViewCharacterProfession.setText(c.getProfession());
+                textViewCharacterClass.setText(c.getCharacterClass());
+                textViewCharacterBelief.setText(c.getBelief());
+                textViewCharacterMaxHP.setText(String.valueOf(c.getMaxHp()));
+                textViewCharacterXP.setText(String.valueOf(c.getXp()));
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                RelativeLayout character_layout = (RelativeLayout) findViewById(R.id.character_layout);
+                character_layout.setVisibility(View.INVISIBLE);
+
+                RelativeLayout character_layout_404 = (RelativeLayout) findViewById(R.id.character_layout_404);
+                character_layout_404.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override
@@ -60,5 +95,33 @@ public class CharacterActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickEditCharacter(View v){
+        textViewCharacterName.setEnabled(true);
+        textViewCharacterNationality.setEnabled(true);
+        textViewCharacterRace.setEnabled(true);
+        textViewCharacterProfession.setEnabled(true);
+        textViewCharacterClass.setEnabled(true);
+        textViewCharacterBelief.setEnabled(true);
+        textViewCharacterMaxHP.setEnabled(true);
+        textViewCharacterXP.setEnabled(true);
+
+        buttonEditCharacter.setVisibility(View.INVISIBLE);
+        buttonUpdateCharacter.setVisibility(View.VISIBLE);
+    }
+
+    public void onClickUpdateCharacter(View v){
+        textViewCharacterName.setEnabled(false);
+        textViewCharacterNationality.setEnabled(false);
+        textViewCharacterRace.setEnabled(false);
+        textViewCharacterProfession.setEnabled(false);
+        textViewCharacterClass.setEnabled(false);
+        textViewCharacterBelief.setEnabled(false);
+        textViewCharacterMaxHP.setEnabled(false);
+        textViewCharacterXP.setEnabled(false);
+
+        buttonEditCharacter.setVisibility(View.VISIBLE);
+        buttonUpdateCharacter.setVisibility(View.INVISIBLE);
     }
 }
