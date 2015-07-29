@@ -1,0 +1,162 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    tools:context="mcoo.mcoo_gn_frontend.realplayerActivity"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true">
+
+    <TextView android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/realplayer_labelName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBaseline="@+id/realplayer_name"
+        android:textSize="24dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:id="@+id/realplayer_name"
+        android:hint="Name "
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editText6"
+        android:layout_alignStart="@+id/editText6"
+        android:textSize="24dp" />
+
+
+
+    <TextView android:text="GN post "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/realplayer_labelGNPost"
+        android:textSize="24dp"
+        android:layout_alignBottom="@+id/realplayer_GNPost"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="GN Post"
+        android:id="@+id/realplayer_GNPost"
+        android:hint="GN Post"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@+id/realplayer_labelTelephone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:textSize="24dp" />
+
+    <TextView android:text="E-mail "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/realplayer_labelEmail"
+        android:textSize="24dp"
+        android:layout_alignTop="@+id/realplayer_Email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Email"
+        android:id="@+id/realplayer_Email"
+        android:hint="Email"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@+id/editText6"
+        android:layout_alignRight="@+id/realplayer_name"
+        android:layout_alignEnd="@+id/realplayer_name"
+        android:layout_marginTop="44dp"
+        android:textSize="24dp" />
+
+    <TextView android:text="Telephone "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/realplayer_labelTelephone"
+        android:textSize="24dp"
+        android:layout_alignBaseline="@+id/realplayer_Telephone"
+        android:layout_alignBottom="@+id/realplayer_Telephone"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Telephone"
+        android:id="@+id/realplayer_Telephone"
+        android:hint="Telephone"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/realplayer_Email"
+        android:layout_alignLeft="@+id/realplayer_GNPost"
+        android:layout_alignStart="@+id/realplayer_GNPost"
+        android:textSize="24dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Last name"
+        android:id="@+id/editText6"
+        android:hint="Last Name"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_alignTop="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:textIsSelectable="false"
+        android:textSize="24dp" />
+
+    <TextView
+        android:text="Last Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="24dp"
+        android:layout_below="@+id/realplayer_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/characterSpinner"
+        android:entries="@array/object_array"
+        android:prompt="@string/select"
+        android:layout_below="@+id/realplayer_labelGNPost"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="false"
+        android:minHeight="24dp"
+        android:longClickable="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select"
+        android:id="@+id/button3"
+        android:layout_alignTop="@+id/characterSpinner"
+        android:layout_toRightOf="@+id/editText6"
+        android:layout_toEndOf="@+id/editText6"
+        android:singleLine="false"
+        android:onClick="onClickLogin"
+        android:longClickable="false"
+        android:clickable="true" />
+
+</RelativeLayout>

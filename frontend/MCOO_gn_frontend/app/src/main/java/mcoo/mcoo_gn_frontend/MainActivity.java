@@ -41,11 +41,9 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void loginClick(View v){
-            setContentView(R.layout.character);
-    }
+
     public void characterClick(View v){
-        setContentView(R.layout.realplayer);
+        setContentView(R.layout.activity_player);
     }
 
 
