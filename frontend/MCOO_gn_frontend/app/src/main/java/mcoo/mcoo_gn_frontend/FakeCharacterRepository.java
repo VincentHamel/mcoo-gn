@@ -14,6 +14,6 @@ public class FakeCharacterRepository implements CharacterRepository {
     public void findById(String id, Response.Listener<CharacterSheet> onSuccess,
                          Response.ErrorListener onError) {
         onSuccess.onResponse(new CharacterSheet(id, "McTesto", "Scottish", "Human", "Musician",
-                "Bard", "Pagan", 500, new ArrayList<String>(Arrays.asList("berseker")), 10));
+                "Bard", "Pagan", 500, new ArrayList<String>(Arrays.asList("berseker","meditation","programmation")), 10));
     }
 }
