@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -79,18 +80,18 @@ public class UserSheet {
 
     public CharacterSheet getCharacter(String id) {
         List<String> skills = new ArrayList<String>();
-        CharacterSheet x= new CharacterSheet("no id","no name","no last name","no nationality","no race"
-                ,"no profession","no class", 1,skills, 1 );
+        CharacterSheet x;//= //new CharacterSheet("no id","no name","no last name","no nationality","no race"
+              //  ,"no profession","no class", 1,skills, 1 );
         for (int i = 0; i< characterList.size(); i++)
         {
             if (characterList.get(i).id == id)
+            {
                 x= characterList.get(i);
-            // else: ben ya pas trouver le personnage, donc erreur = wabajaba
-            else{
-                
+                return x;
             }
         }
-        return x;
+        throw new EmptyStackException();
+
     }
 
 
