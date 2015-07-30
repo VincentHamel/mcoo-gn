@@ -79,9 +79,8 @@ public class UserSheet {
     }
 
     public CharacterSheet getCharacter(String id) {
-        List<String> skills = new ArrayList<String>();
-        CharacterSheet x;//= //new CharacterSheet("no id","no name","no last name","no nationality","no race"
-              //  ,"no profession","no class", 1,skills, 1 );
+        
+        CharacterSheet x;
         for (int i = 0; i< characterList.size(); i++)
         {
             if (characterList.get(i).id == id)
@@ -90,7 +89,7 @@ public class UserSheet {
                 return x;
             }
         }
-        throw new EmptyStackException();
+        throw new RuntimeException();
 
     }
 
