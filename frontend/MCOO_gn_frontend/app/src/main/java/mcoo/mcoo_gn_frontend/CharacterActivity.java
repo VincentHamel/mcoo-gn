@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import java.util.ArrayList;
 import java.util.List;
 import com.android.volley.VolleyError;
 import com.android.volley.Response;

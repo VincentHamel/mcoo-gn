@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by Vince on 2015-07-28.
  */
-public class RealPlayerActivity extends ActionBarActivity {
+public class UserActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,7 @@ public class RealPlayerActivity extends ActionBarActivity {
         listViewSkills.setAdapter(adapter);
 
         textViewrealPlayerName.setText("Julieta");
-        textViewCharacterNationality.setText("French");
-        textViewCharacterRace.setText("Dwarf");
-        textViewCharacterProfession.setText("Forgeron");
-        textViewCharacterClass.setText("Wizard");
-        textViewCharacterBelief.setText("My belief");
-        textViewCharacterMaxHP.setText("300");
-        textViewCharacterXP.setText("4");
+       // crap data
     }
 
 }

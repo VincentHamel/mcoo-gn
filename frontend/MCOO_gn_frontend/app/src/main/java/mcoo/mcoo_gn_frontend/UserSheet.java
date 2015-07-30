@@ -11,7 +11,7 @@ import java.util.ListIterator;
 /**
  * Created by Vince on 2015-07-28.
  */
-public class realPlayerSheet {
+public class UserSheet {
 
     String id;
     String name;
@@ -23,7 +23,7 @@ public class realPlayerSheet {
 
 
 
-    public realPlayerSheet(String id, String name, String lastName, String email,
+    public UserSheet(String id, String name, String lastName, String email,
                           String telephone, String GNPost){
         this.id = id;
         this.name = name;
@@ -77,15 +77,18 @@ public class realPlayerSheet {
         characterList.remove(sheetToon);
     }
 
-    public CharacterSheet getCharacter(String name) {
+    public CharacterSheet getCharacter(String id) {
         List<String> skills = new ArrayList<String>();
         CharacterSheet x= new CharacterSheet("no id","no name","no last name","no nationality","no race"
                 ,"no profession","no class", 1,skills, 1 );
         for (int i = 0; i< characterList.size(); i++)
         {
-            if (characterList.get(i).name == name)
+            if (characterList.get(i).id == id)
                 x= characterList.get(i);
             // else: ben ya pas trouver le personnage, donc erreur = wabajaba
+            else{
+                
+            }
         }
         return x;
     }
