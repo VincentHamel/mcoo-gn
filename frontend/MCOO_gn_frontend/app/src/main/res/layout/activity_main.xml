@@ -6,16 +6,42 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:background="@drawable/custom_background">
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/textEmail"
+        android:layout_marginTop="97dp"
+        android:editable="true"
+        android:hint="Username (e-mail)"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/textPassword"
+        android:editable="true"
+        android:hint="Password"
+        android:layout_below="@+id/textEmail"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:text="Login"
-        android:id="@+id/login"
+        android:id="@+id/btnLogin"
         android:clickable="true"
         android:enabled="true"
         android:onClick="onClickLogin"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/textPassword"
+        android:layout_alignRight="@+id/textPassword"
+        android:layout_alignEnd="@+id/textPassword" />
+
+
 
 </RelativeLayout>

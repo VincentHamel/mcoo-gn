@@ -29,6 +29,9 @@ public class CharacterActivity extends ActionBarActivity {
     EditText textViewCharacterXP;
     Button buttonEditCharacter;
     Button buttonUpdateCharacter;
+    Button buttonCancelCharacter;
+    CharacterSheet currentCharacter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,7 @@ public class CharacterActivity extends ActionBarActivity {
         textViewCharacterXP = (EditText) findViewById(R.id.character_xp);
         buttonEditCharacter = (Button) findViewById(R.id.character_edit_button);
         buttonUpdateCharacter = (Button) findViewById(R.id.character_update_button);
+        buttonCancelCharacter = (Button) findViewById(R.id.character_cancel_button);
 
         RepositoryFactory.getCharacterRepository(this).findById("55b647c2924605dc0c7c8484", new Response.Listener<CharacterSheet>() {
             @Override
@@ -53,6 +57,7 @@ public class CharacterActivity extends ActionBarActivity {
                 List<String> skills = c.getSkills();
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), R.layout.custom_edittext, skills);
                 listViewSkills.setAdapter(adapter);
+                currentCharacter = c;
 
                 textViewCharacterName.setText(c.getName());
                 textViewCharacterNationality.setText(c.getNationality());
@@ -97,21 +102,7 @@ public class CharacterActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClickEditCharacter(View v){
-        textViewCharacterName.setEnabled(true);
-        textViewCharacterNationality.setEnabled(true);
-        textViewCharacterRace.setEnabled(true);
-        textViewCharacterProfession.setEnabled(true);
-        textViewCharacterClass.setEnabled(true);
-        textViewCharacterBelief.setEnabled(true);
-        textViewCharacterMaxHP.setEnabled(true);
-        textViewCharacterXP.setEnabled(true);
-
-        buttonEditCharacter.setVisibility(View.INVISIBLE);
-        buttonUpdateCharacter.setVisibility(View.VISIBLE);
-    }
-
-    public void onClickUpdateCharacter(View v){
+    public void disableControls() {
         textViewCharacterName.setEnabled(false);
         textViewCharacterNationality.setEnabled(false);
         textViewCharacterRace.setEnabled(false);
@@ -120,8 +111,45 @@ public class CharacterActivity extends ActionBarActivity {
         textViewCharacterBelief.setEnabled(false);
         textViewCharacterMaxHP.setEnabled(false);
         textViewCharacterXP.setEnabled(false);
+    }
+
+    public void enableControls() {
+        textViewCharacterName.setEnabled(true);
+        textViewCharacterNationality.setEnabled(true);
+        textViewCharacterRace.setEnabled(true);
+        textViewCharacterProfession.setEnabled(true);
+        textViewCharacterClass.setEnabled(true);
+        textViewCharacterBelief.setEnabled(true);
+        textViewCharacterMaxHP.setEnabled(true);
+        textViewCharacterXP.setEnabled(true);
+    }
+    public void onClickEditCharacter(View v){
+        enableControls();
+        buttonEditCharacter.setVisibility(View.INVISIBLE);
+        buttonUpdateCharacter.setVisibility(View.VISIBLE);
+        buttonCancelCharacter.setVisibility(View.VISIBLE);
+    }
+
+    public void onClickUpdateCharacter(View v){
+        disableControls();
+        buttonEditCharacter.setVisibility(View.VISIBLE);
+        buttonUpdateCharacter.setVisibility(View.INVISIBLE);
+        buttonCancelCharacter.setVisibility(View.INVISIBLE);
+    }
+
+    public void onClickCancelCharacter(View v){
+        disableControls();
+        textViewCharacterName.setText(currentCharacter.getName());
+        textViewCharacterNationality.setText(currentCharacter.getNationality());
+        textViewCharacterRace.setText(currentCharacter.getRace());
+        textViewCharacterProfession.setText(currentCharacter.getProfession());
+        textViewCharacterClass.setText(currentCharacter.getCharacterClass());
+        textViewCharacterBelief.setText(currentCharacter.getBelief());
+        textViewCharacterMaxHP.setText(String.valueOf(currentCharacter.getMaxHp()));
+        textViewCharacterXP.setText(String.valueOf(currentCharacter.getXp()));
 
         buttonEditCharacter.setVisibility(View.VISIBLE);
         buttonUpdateCharacter.setVisibility(View.INVISIBLE);
+        buttonCancelCharacter.setVisibility(View.INVISIBLE);
     }
 }
