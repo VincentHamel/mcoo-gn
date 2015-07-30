@@ -1,11 +1,14 @@
 package mcoo.mcoo_gn_frontend;
 
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -17,30 +20,55 @@ import java.util.List;
  * Created by Vince on 2015-07-28.
  */
 public class UserActivity extends ActionBarActivity {
+    EditText textViewUserName;
+    EditText textViewUserEmail;
+    EditText textViewUserTelephone;
+    EditText textViewUserGNPost;
+
+    Button buttonViewCharacter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_character);
+        setContentView(R.layout.activity_user);
 
-        EditText textViewrealPlayerName = (EditText) findViewById(R.id.realplayer_name);
-        EditText textViewCharacterNationality = (EditText) findViewById(R.id.character_nationality);
-        EditText textViewCharacterRace = (EditText) findViewById(R.id.character_race);
-        EditText textViewCharacterProfession = (EditText) findViewById(R.id.character_profession);
-        EditText textViewCharacterClass = (EditText) findViewById(R.id.character_class);
-        EditText textViewCharacterBelief = (EditText) findViewById(R.id.character_belief);
-        EditText textViewCharacterMaxHP = (EditText) findViewById(R.id.character_max_hp);
-        ListView listViewSkills = (ListView) findViewById(R.id.character_skills);
-        EditText textViewCharacterXP = (EditText) findViewById(R.id.character_xp);
+        EditText textViewUserName = (EditText) findViewById(R.id.UserName);
+        EditText textViewUserEmail = (EditText) findViewById(R.id.UserEmail);
+        EditText textViewUserTelephone = (EditText) findViewById(R.id.UserTelephone);
+        EditText textViewUserGNPost = (EditText) findViewById(R.id.UserGNPost);
 
-        List<String> skills = new ArrayList<String>();
-        skills.add("meditation");
-        skills.add("decrypt");
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(listViewSkills.getContext(), android.R.layout.simple_list_item_1, skills);
-        listViewSkills.setAdapter(adapter);
+        textViewUserName.setText("Julieta nunez cledon");
+        textViewUserEmail.setText("dummy@hotmail.com");
+        textViewUserTelephone.setText("819-666-5555");
+        textViewUserGNPost.setText(" The Dark Swan");
 
-        textViewrealPlayerName.setText("Julieta");
-       // crap data
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_character, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    public void onCharacterClick(View v){
+        Intent intent = new Intent(this, CharacterActivity.class);
+        startActivity(intent);
+    }
 }

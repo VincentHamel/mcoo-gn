@@ -15,7 +15,7 @@
         android:id="@+id/login"
         android:clickable="true"
         android:enabled="true"
-        android:onClick="characterClick"
+        android:onClick="onClickLogin"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:background="@android:color/darker_gray" />

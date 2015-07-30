@@ -16,4 +16,5 @@
     </string-array>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_user">UserActivity</string>
 </resources>

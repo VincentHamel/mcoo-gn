@@ -16,9 +16,16 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onClickLogin(View v){
+        Intent intent = new Intent(this, UserActivity.class);
+        startActivity(intent);
+    }
+    // move to useractivity
+    /*
+    public void onCharacterClick(View v){
         Intent intent = new Intent(this, CharacterActivity.class);
         startActivity(intent);
     }
+    */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,10 +47,6 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void characterClick(View v){
-        setContentView(R.layout.activity_player);
     }
 
 
