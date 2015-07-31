@@ -22,13 +22,12 @@ public class UserSheet {
     String GNPost;
     ArrayList <CharacterSheet> characterList;
 
+    ArrayList<String> dummy = new ArrayList<String>();
 
-
-    public UserSheet(String id, String name, String lastName, String email,
+    public UserSheet(String id, String name, String email,
                           String telephone, String GNPost){
         this.id = id;
         this.name = name;
-        this.lastName = lastName;
         this.email = email;
         this.telephone = telephone;
         this.GNPost = GNPost;
@@ -95,6 +94,4 @@ public class UserSheet {
 
 
 }
-
-
 
