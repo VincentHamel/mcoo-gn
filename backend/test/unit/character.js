@@ -88,7 +88,7 @@ describe('characterModel', function() {
         should.not.exist(err);
         newcharacter.save(
           function(err){
-            should.exist(err);
+            should.not.exist(err);
             done();
           });
       });
@@ -96,7 +96,7 @@ describe('characterModel', function() {
 
 
   });
-
+	
   it('Should fail creation of a character due to skills', function(done) {
     var Character = require('../../app/models/character');
 
