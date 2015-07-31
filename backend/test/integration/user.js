@@ -137,7 +137,7 @@ describe('User', function() {
     });
   });
   
-  describe('Update', function() {
+  describe('Patch', function() {
     var userId = null;
     before(function(done) {
       var user = new User();
@@ -157,15 +157,28 @@ describe('User', function() {
     });
 
     it('should be able to patch the user', function(done) {
-      console.log(userId);
       request(url)
-        .put('/user/' + userId)
-        .send({"email" : "yolo@yolo.com"})
+        .patch('/user/')
+        .send({"email" : "yolo@yolo.com", "_id" : userId})
         .expect(200) //Status code
         .end(function(err, res) {
           should.not.exist(err);
           should.exist(res);
           res.body.user.should.have.property('email', 'yolo@yolo.com');
+          done();
+      });
+    });
+    
+     it('should not be able to patch the user with a wrong email', function(done) {
+      request(url)
+        .patch('/user/')
+        .send({"email" : "yoloyolo.com", "_id" : userId})
+        .expect(400) //Status code
+        .end(function(err, res) {
+          should.not.exist(err);
+          should.exist(res);
+          res.body.should.have.property('message', 'User validation failed');
+          res.body.should.have.property('name', 'ValidationError');
           done();
       });
     });

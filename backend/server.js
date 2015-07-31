@@ -132,8 +132,8 @@ router.route('/user/:id')
 });
 
 router.route('/user')
-// update character (accessed at put http://localhost:8080/user)
-  .put(function(req, res) {
+// patch character (accessed at put http://localhost:8080/user)
+  .patch(function(req, res) {
 	  
   if(!req.body._id){
     res.status(422);
@@ -141,7 +141,6 @@ router.route('/user')
     return;
   }
 	User.findOne({_id : req.body._id}, function(err, user) {
-    console.log(err);
      if(!user || err) {
       res.status(404);
       res.json({message: "User not found"});
@@ -156,8 +155,9 @@ router.route('/user')
     
     user.save(function(err, res2) {
       if (err) {
+        console.log(err)
         res.status(400);
-        res.json({ message: err.message, name: err.name })
+        res.json({ message: err.error})
       }
       else
         res.json({ message: 'User updated!' , user: res2});
