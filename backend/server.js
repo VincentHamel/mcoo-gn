@@ -155,9 +155,8 @@ router.route('/user')
     
     user.save(function(err, res2) {
       if (err) {
-        console.log(err)
         res.status(400);
-        res.json({ message: err.error})
+        res.json({ message: err.message, name: err.name})
       }
       else
         res.json({ message: 'User updated!' , user: res2});

@@ -182,5 +182,61 @@ describe('User', function() {
           done();
       });
     });
+     it('should not be able to patch the user with a wrong email', function(done) {
+      request(url)
+        .patch('/user/')
+        .send({_id: "yolo"})
+        .expect(404) //Status code
+        .end(function(err, res) {
+          should.not.exist(err);
+          should.exist(res);
+          res.body.should.have.property('message', 'User not found');
+          done();
+      });
+    });
+  });
+
+  describe('Patch', function() {
+    var userId = null;
+    before(function(done) {
+      var user = new User();
+      user.name = 'testUser';
+      user.phone = 'Testland';
+      user.email = 'something@something.com';
+      user.hashPassword = 'password';
+        user.save(
+          function(err, res){
+            userId = res._id;
+            should.not.exist(err);
+            done();
+          });
+    });
+    after(function() {
+      User.find({name:'testUser'}).remove().exec();
+    });
+
+    it('should not be able to delete a character with a wrong id', function(done) {
+      request(url)
+        .delete('/user/yooooolloooo')
+        .expect(404) //Status code
+        .end(function(err, res) {
+          should.not.exist(err);
+          should.exist(res);
+          res.body.should.have.property('message', 'User not found');
+          done();
+      });
+    });
+    it('should able to delete a character', function(done) {
+      request(url)
+        .delete('/user/'+ userId)
+        .expect(200) //Status code
+        .end(function(err, res) {
+          should.not.exist(err);
+          should.exist(res);
+          res.body.should.have.property('message', 'User deleted');
+          done();
+      });
+    });
+    
   });
 });
