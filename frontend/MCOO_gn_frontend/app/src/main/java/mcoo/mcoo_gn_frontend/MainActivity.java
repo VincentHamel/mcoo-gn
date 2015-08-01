@@ -1,21 +1,11 @@
 package mcoo.mcoo_gn_frontend;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -23,37 +13,11 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        final TextView message = (TextView)findViewById(R.id.message);
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://" + BuildConfig.SERVER_ENDPOINT + "/foo";
-
-        CharacterRepository characters;
-
-        if(! BuildConfig.USE_REAL_API){
-            characters = new FakeCharacterRepository();
-        }
-
-        JsonObjectRequest messageRequest = new JsonObjectRequest(Request.Method.GET, url,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            String msg = response.getString("message");
-                            message.setText("Foo?  " + msg);
-                        } catch (JSONException e) {
-                            message.setText("Invalid JSON");
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                message.setText("That didn't work!" + error.toString());
-            }
-        });
-
-        queue.add(messageRequest);
+    public void onClickLogin(View v){
+        Intent intent = new Intent(this, CharacterActivity.class);
+        startActivity(intent);
     }
 
     @Override

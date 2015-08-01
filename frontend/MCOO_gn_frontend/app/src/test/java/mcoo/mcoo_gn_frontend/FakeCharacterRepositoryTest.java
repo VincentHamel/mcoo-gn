@@ -1,25 +1,27 @@
 package mcoo.mcoo_gn_frontend;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.CountDownLatch;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Erika on 2015-07-25.
- */
 public class FakeCharacterRepositoryTest {
     CharacterSheet character1;
     FakeCharacterRepository rep1;
 
     @Before
     public void setUp() throws Exception {
-        character1 = new CharacterSheet(1, "McTesto", "Scottish", "Human", "Musician",
-                "Bard", "Pagan", 500, new ArrayList<String>(Arrays.asList("berseker")), 10);
+        character1 = new CharacterSheet("1", "McTesto", "Scottish", "Human", "Musician",
+                "Bard", "Pagan", 500, new ArrayList<String>(Arrays.asList("berseker","meditation","programmation")), 10);
         rep1 = new FakeCharacterRepository();
     }
 
@@ -30,6 +32,20 @@ public class FakeCharacterRepositoryTest {
 
     @Test
     public void testFindById() throws Exception {
-        assertEquals(character1, rep1.findById(1));
+        final CountDownLatch signal = new CountDownLatch(1);
+
+        rep1.findById("1", new Response.Listener<CharacterSheet>() {
+            @Override
+            public void onResponse(CharacterSheet c) {
+                assertTrue(character1.equals(c));
+                signal.countDown();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                signal.countDown();
+            }
+        });
+        signal.await();
     }
 }

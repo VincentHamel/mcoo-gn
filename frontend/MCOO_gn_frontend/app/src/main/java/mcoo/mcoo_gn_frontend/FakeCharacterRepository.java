@@ -1,5 +1,7 @@
 package mcoo.mcoo_gn_frontend;
 
+import com.android.volley.Response;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,9 +11,9 @@ import java.util.Arrays;
 public class FakeCharacterRepository implements CharacterRepository {
 
     @Override
-    public CharacterSheet findById(int id) {
-        CharacterSheet fakeSheet = new CharacterSheet(id, "McTesto", "Scottish", "Human", "Musician",
-                "Bard", "Pagan", 500, new ArrayList<String>(Arrays.asList("berseker")), 10);
-        return fakeSheet;
+    public void findById(String id, Response.Listener<CharacterSheet> onSuccess,
+                         Response.ErrorListener onError) {
+        onSuccess.onResponse(new CharacterSheet(id, "McTesto", "Scottish", "Human", "Musician",
+                "Bard", "Pagan", 500, new ArrayList<String>(Arrays.asList("berseker","meditation","programmation")), 10));
     }
 }
