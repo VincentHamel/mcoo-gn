@@ -13,7 +13,7 @@ describe('Character', function() {
     var profile = {
       "name" : "testCharacter",
       "nationality" : "American",
-      "race" : "humain",
+      "race" : "human",
       "profession" : "miner",
       "class" : "warrior",
       "belief" : "catholism",
@@ -43,7 +43,7 @@ describe('Character', function() {
       var profile = {
         "name" : "testChar2",
         "nationality" : "Canadian",
-        "race" : "humain",
+        "race" : "human",
         "profession" : "miner",
         "class" : "warrior",
         "belief" : "catholism",
@@ -71,7 +71,7 @@ describe('Character', function() {
     var profile = {
       "name" : "testChar2",
       "nationality" : "Canadian",
-      "race" : "humain",
+      "race" : "human",
       "profession" : "miner",
       "class" : "warrior",
       "belief" : "catholism",
