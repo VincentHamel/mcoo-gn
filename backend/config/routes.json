@@ -1,0 +1,17 @@
+[	{
+		"route" : "/foo",
+		"controller" : "foo.js"
+	},
+	{
+		"route" : "/hello",
+		"controller" : "hello.js"
+	},
+	{
+		"route" : "/character",
+		"controller" : "character.js"
+	},
+	{
+		"route" : "/user",
+		"controller" : "user.js"
+	}
+]
