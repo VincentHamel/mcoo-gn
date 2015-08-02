@@ -28,7 +28,6 @@ for (var index in config) {
 }
 
 // REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
 app.use('/', router);
 
 // START THE SERVER

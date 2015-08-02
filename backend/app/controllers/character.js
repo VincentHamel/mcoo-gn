@@ -39,4 +39,55 @@ router.route('/:id')
   });
 });
 
+router.route('/')
+// patch character (accessed at put http://localhost:8080/character)
+  .patch(function(req, res) {
+
+  if(!req.body._id){
+    res.status(422);
+    res.json({message: "Character missing id"});
+    return;
+  }
+  Character.findOne({_id : req.body._id}, function(err, character) {
+    if(!character || err) {
+      res.status(404);
+      res.json({message: "Character not found"});
+      return;
+    }
+
+    if (req.body.name)character.name = req.body.name;
+    if (req.body.nationality)character.nationality = req.body.nationality;
+    if (req.body.race)character.race = req.body.race;
+    if (req.body.profession)character.profession = req.body.profession;
+    if (req.body.class)character.class = req.body.class;
+    if (req.body.belief)character.belief = req.body.belief;
+    if (req.body.max_hp)character.max_hp = req.body.max_hp;
+    if (req.body.skills)character.skills = req.body.skills;
+    if (req.body.xp)character.xp = req.body.xp;
+
+    character.save(function(err, res2) {
+      if (err) {
+        res.status(400);
+        res.json({ message: err.message, name: err.name});
+      }
+      else
+        res.json({ message: 'Character updated!' , character: res2});
+    });
+  });
+});
+
+router.route('/:id')
+// delete character (accessed at delete)
+  .delete(function(req, res) {
+  Character.findOne({_id : req.params.id}).remove(  function(err, character) {
+    if(!character || err || character.result.n <= 0) {
+      res.status(404);
+      res.json({message: "Character not found"});
+    } else{
+
+      res.json({ message: 'Character deleted' });
+    }
+  });
+});
+
 module.exports = router;
