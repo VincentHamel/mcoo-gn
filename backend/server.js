@@ -58,45 +58,10 @@ router.route('/hello/:name')
   });
 });
 
-router.route('/character')
-// create character (accessed at POST http://localhost:8080/character)
-  .post(function(req, res) {
-  var character = new Character();
-  character.name = req.body.name;
-  character.nationality = req.body.nationality;
-  character.race = req.body.race;
-  character.profession = req.body.profession;
-  character.class = req.body.class;
-  character.belief = req.body.belief;
-  character.max_hp = req.body.max_hp;
-  character.skills = req.body.skills;
-  character.xp = req.body.xp;
-
-  // save the character and check for errors
-  character.save(function(err) {
-
-    if (err) {
-      res.status(400);
-      res.json({ message: err.message, name: err.name });
-    }
-    else
-      res.json({ message: 'Character created!' });
-  });
-});
-
-router.route('/character/:id')
-  .get(function(req, res) {
-  Character.findOne({_id : req.params.id}, function(err, character) {
-    if(!character || err) {
-      res.status(404);
-      res.json({message: "Character not found"});
-    } else
-      res.json(character);
-  });
-});
+/*==============================USER=======================================*/
 
 router.route('/user')
-// create character (accessed at POST http://localhost:8080/user)
+// create user (accessed at POST http://localhost:8080/user)
   .post(function(req, res) {
   var user = new User();
   user.name = req.body.name;
@@ -105,9 +70,8 @@ router.route('/user')
   user.email = req.body.email;
   user.characters = req.body.characters;
 
-  // save the character and check for errors
+  // save the user and check for errors
   user.save(function(err) {
-
     if (err) {
       res.status(400);
       res.json({ message: err.message, name: err.name })
@@ -118,7 +82,7 @@ router.route('/user')
 });
 
 router.route('/user/:id')
-// get character (accessed at get)
+// get user (accessed at get)
   .get(function(req, res) {
   User.findOne({_id : req.params.id}, function(err, user) {
     if(!user || err) {
@@ -132,7 +96,7 @@ router.route('/user/:id')
 });
 
 router.route('/user')
-// patch character (accessed at put http://localhost:8080/user)
+// patch user (accessed at put http://localhost:8080/user)
   .patch(function(req, res) {
 	  
   if(!req.body._id){
@@ -175,10 +139,99 @@ router.route('/user/:id')
       
       res.json({ message: 'User deleted' });
     }
-	
   });
 });
 
+/*==============================CHARACTER=======================================*/
+
+
+router.route('/character')
+// create character (accessed at POST http://localhost:8080/character)
+  .post(function(req, res) {
+  var character = new Character();
+  character.name = req.body.name;
+  character.nationality = req.body.nationality;
+  character.race = req.body.race;
+  character.profession = req.body.profession;
+  character.class = req.body.class;
+  character.belief = req.body.belief;
+  character.max_hp = req.body.max_hp;
+  character.skills = req.body.skills;
+  character.xp = req.body.xp;
+
+  // save the character and check for errors
+  character.save(function(err) {
+    if (err) {
+      res.status(400);
+      res.json({ message: err.message, name: err.name });
+    }
+    else
+      res.json({ message: 'Character created!' });
+  });
+});
+
+router.route('/character/:id')
+// get character (accessed at get)
+  .get(function(req, res) {
+  Character.findOne({_id : req.params.id}, function(err, character) {
+    if(!character || err) {
+      res.status(404);
+      res.json({message: "Character not found"});
+    } else
+      res.json(character);
+  });
+});
+
+router.route('/character')
+// patch character (accessed at put http://localhost:8080/character)
+  .patch(function(req, res) {
+    
+  if(!req.body._id){
+    res.status(422);
+    res.json({message: "Character missing id"});
+    return;
+  }
+  Character.findOne({_id : req.body._id}, function(err, character) {
+     if(!character || err) {
+      res.status(404);
+      res.json({message: "Character not found"});
+      return;
+    } 
+    
+    if (req.body.name)character.name = req.body.name;
+    if (req.body.nationality)character.nationality = req.body.nationality;
+    if (req.body.race)character.race = req.body.race;
+    if (req.body.profession)character.profession = req.body.profession;
+    if (req.body.class)character.class = req.body.class;
+    if (req.body.belief)character.belief = req.body.belief;
+    if (req.body.max_hp)character.max_hp = req.body.max_hp;
+    if (req.body.skills)character.skills = req.body.skills;
+    if (req.body.xp)character.xp = req.body.xp;
+
+    character.save(function(err, res2) {
+      if (err) {
+        res.status(400);
+        res.json({ message: err.message, name: err.name})
+      }
+      else
+        res.json({ message: 'Character updated!' , character: res2});
+    });
+  });
+});
+
+router.route('/character/:id')
+// delete character (accessed at delete)
+  .delete(function(req, res) {
+  Character.findOne({_id : req.params.id}).remove(  function(err, character) {
+    if(!character || err || character.result.n <= 0) {
+      res.status(404);
+      res.json({message: "Character not found"});
+    } else{
+      
+      res.json({ message: 'Character deleted' });
+    }
+  });
+});
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api

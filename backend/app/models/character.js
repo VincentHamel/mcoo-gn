@@ -10,15 +10,15 @@ function validatorSkills(v) {
 }
 
 var CharacterSchema = new Schema({
-    name: String,
-    nationality: String,
-    race: {type: String, enum: ['human', 'elf', 'dwarf']},
-    profession: {type: String, enum: ['botanist', 'miner', 'forgeron', 'scribe', 'trader']},
-    class: {type: String, enum: ['warrior', 'wizard', 'bard', 'priest', 'thief']},
-    belief: String,
-    max_hp: Number,
+    name: { type: String, required: true},
+    nationality: { type: String, required: true},
+    race: {type: String, enum: ['human', 'elf', 'dwarf'], required: true},
+    profession: {type: String, enum: ['botanist', 'miner', 'blacksmith', 'scribe', 'trader'], required: true},
+    class: {type: String, enum: ['warrior', 'wizard', 'bard', 'priest', 'thief'], required: true},
+    belief: { type: String, required: true},
+    max_hp: { type: Number, required: true},
     skills: {type: [String], validate: validatorSkills},
-    xp: Number
+    xp: { type: Number, required: true}
 });
 
 module.exports = mongoose.model('Character', CharacterSchema);
