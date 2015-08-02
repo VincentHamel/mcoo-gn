@@ -5,19 +5,17 @@ var SALT_WORK_FACTOR = 10;
 var bcrypt       = require('bcrypt');
 
 var UserSchema = new Schema({
-    name: String,
-    phone: String,
-	hashPassword: String,
-    email: {type: String, match: /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, unique: true},
-    characters: [{ type: Schema.Types.ObjectId, ref: 'Character' }]
+    name: { type: String, required: true},
+    phone: { type: String, required: true},
+    hashPassword: { type: String, required: true},
+    email: {type: String, match: /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, unique: true, required: true},
+    characters: [{ type: Schema.Types.ObjectId, ref: 'Character', required: true}]
 });
 
 UserSchema.pre('save', function(next){
 	var user = this;
 
     // only hash the password if it has been modified (or is new)
-	//console.log(user.isModified('hashPassword'));
-    //if (!user.isModified('hashPassword')) return next();
 
     // generate a salt
     bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
