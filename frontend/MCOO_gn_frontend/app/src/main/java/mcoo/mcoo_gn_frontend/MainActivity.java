@@ -1,11 +1,17 @@
 package mcoo.mcoo_gn_frontend;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.regex.Pattern;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -13,6 +19,26 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final EditText textEmail = (EditText) findViewById(R.id.textEmail);
+        final Button  btnLogin = (Button) findViewById(R.id.btnLogin);
+        textEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    if (!isValidEmail(textEmail.getText().toString())){
+                        textEmail.setError("Invalid e-mail format");
+                        btnLogin.setEnabled(false);
+                    }
+                    else
+                        btnLogin.setEnabled(true);
+                }
+            }
+        });
+    }
+
+    private boolean isValidEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
 
     public void onClickLogin(View v){
