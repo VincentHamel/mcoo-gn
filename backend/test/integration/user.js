@@ -182,7 +182,7 @@ describe('User', function() {
           done();
       });
     });
-     it('should not be able to patch the user with a wrong email', function(done) {
+     it('should not be able to patch the user with a wrong id', function(done) {
       request(url)
         .patch('/user/')
         .send({_id: "yolo"})
@@ -196,7 +196,7 @@ describe('User', function() {
     });
   });
 
-  describe('Patch', function() {
+  describe('Delete', function() {
     var userId = null;
     before(function(done) {
       var user = new User();
