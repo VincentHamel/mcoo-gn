@@ -16,10 +16,8 @@ public class UserSheet {
 
     String id;
     String name;
-    String lastName;
     String email;
     String telephone;
-    String GNPost;
     ArrayList <CharacterSheet> characterList;
 
     ArrayList<String> dummy = new ArrayList<String>();
@@ -30,7 +28,6 @@ public class UserSheet {
         this.name = name;
         this.email = email;
         this.telephone = telephone;
-        this.GNPost = GNPost;
 
         ArrayList<CharacterSheet> characterList = new ArrayList<CharacterSheet>();
 
@@ -46,13 +43,6 @@ public class UserSheet {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
     public String getEmail() {
         return email;
     }

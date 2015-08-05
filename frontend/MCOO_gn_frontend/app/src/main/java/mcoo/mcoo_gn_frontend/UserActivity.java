@@ -18,7 +18,6 @@ public class UserActivity extends ActionBarActivity {
     EditText textViewUserName;
     EditText textViewUserEmail;
     EditText textViewUserTelephone;
-    EditText textViewUserGNPost;
 
     Button buttonViewCharacter;
 
@@ -31,13 +30,10 @@ public class UserActivity extends ActionBarActivity {
         EditText textViewUserName = (EditText) findViewById(R.id.UserName);
         EditText textViewUserEmail = (EditText) findViewById(R.id.UserEmail);
         EditText textViewUserTelephone = (EditText) findViewById(R.id.UserTelephone);
-        EditText textViewUserGNPost = (EditText) findViewById(R.id.UserGNPost);
 
         textViewUserName.setText("Julieta nunez cledon");
         textViewUserEmail.setText("dummy@hotmail.com");
         textViewUserTelephone.setText("819-666-5555");
-        textViewUserGNPost.setText(" The Dark Swan");
-
     }
 
 

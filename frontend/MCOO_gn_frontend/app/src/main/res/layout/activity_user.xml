@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     tools:context="mcoo.mcoo_gn_frontend.UserActivity"
     android:orientation="vertical"
-   
+
     android:focusableInTouchMode="true">
 
     <TextView android:text="Name"
@@ -31,31 +31,6 @@
         android:layout_alignLeft="@+id/UserTelephone"
         android:layout_alignStart="@+id/UserTelephone" />
 
-
-
-    <TextView android:text="GN post "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/UserLabelGNPost"
-        android:textSize="24dp"
-        android:layout_alignTop="@+id/UserGNPost"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="GN Post"
-        android:id="@+id/UserGNPost"
-        android:hint="GN Post"
-        android:enabled="false"
-        android:textColor="#ff000000"
-        android:background="@android:drawable/editbox_background"
-        android:layout_below="@+id/UserlabelTelephone"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:textSize="24dp" />
 
     <TextView android:text="E-mail "
         android:layout_width="wrap_content"
@@ -104,9 +79,8 @@
         android:background="@android:drawable/editbox_background"
         android:layout_marginTop="64dp"
         android:layout_below="@+id/UserEmail"
-        android:layout_alignLeft="@+id/UserGNPost"
-        android:layout_alignStart="@+id/UserGNPost"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:layout_centerHorizontal="true" />
 
 
     <Spinner
@@ -118,10 +92,10 @@
         android:prompt="@string/select"
         android:minHeight="24dp"
         android:longClickable="false"
-        android:layout_below="@+id/UserGNPost"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="41dp" />
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/UserlabelTelephone" />
 
     <Button
         android:layout_width="wrap_content"
