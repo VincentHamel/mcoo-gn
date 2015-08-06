@@ -10,12 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-
+import java.util.List;
 import com.android.volley.VolleyError;
 import com.android.volley.Response;
-
-import java.util.List;
-
 
 public class CharacterActivity extends ActionBarActivity {
     EditText textViewCharacterName;
@@ -78,6 +75,7 @@ public class CharacterActivity extends ActionBarActivity {
                 character_layout_404.setVisibility(View.VISIBLE);
             }
         });
+
     }
 
     @Override

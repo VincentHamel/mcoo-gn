@@ -10,4 +10,5 @@ public class RepositoryFactory {
             return new RealApiCharacterRepository(context);
         }
     }
+
 }

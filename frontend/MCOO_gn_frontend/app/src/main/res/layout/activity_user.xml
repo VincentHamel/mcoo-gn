@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    tools:context="mcoo.mcoo_gn_frontend.UserActivity"
+    android:orientation="vertical"
+
+    android:focusableInTouchMode="true">
+
+    <TextView android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserNameLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBaseline="@+id/UserName"
+        android:textSize="24dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:id="@+id/UserName"
+        android:hint="Name "
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_alignParentTop="true"
+        android:textSize="24dp"
+        android:layout_alignLeft="@+id/UserTelephone"
+        android:layout_alignStart="@+id/UserTelephone" />
+
+
+    <TextView android:text="E-mail "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserlabelEmail"
+        android:textSize="24dp"
+        android:layout_alignTop="@+id/UserEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Email"
+        android:id="@+id/UserEmail"
+        android:hint="Email"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_alignRight="@+id/UserName"
+        android:layout_alignEnd="@+id/UserName"
+        android:layout_marginTop="44dp"
+        android:textSize="24dp"
+        android:layout_below="@+id/UserName" />
+
+    <TextView android:text="Telephone "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserlabelTelephone"
+        android:textSize="24dp"
+        android:layout_alignBaseline="@+id/UserTelephone"
+        android:layout_alignBottom="@+id/UserTelephone"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Telephone"
+        android:id="@+id/UserTelephone"
+        android:hint="Telephone"
+        android:enabled="false"
+        android:textColor="#ff000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/UserEmail"
+        android:textSize="24dp"
+        android:layout_centerHorizontal="true" />
+
+
+    <Spinner
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/characterSpinner"
+        android:entries="@array/object_array"
+        android:prompt="@string/select"
+        android:minHeight="24dp"
+        android:longClickable="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/UserlabelTelephone" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select"
+        android:id="@+id/button3"
+        android:layout_alignTop="@+id/characterSpinner"
+        android:singleLine="false"
+        android:onClick="onCharacterClick"
+        android:longClickable="false"
+        android:clickable="true"
+        android:layout_alignLeft="@+id/UserTelephone" />
+
+</RelativeLayout>
